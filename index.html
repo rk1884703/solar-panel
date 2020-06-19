@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<meta  charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+	<title>Smart Solar Panel</title>
+</head>
+<style type="text/css">
+	body{
+	display: flex;
+	flex-wrap: wrap;
+}
+.left{
+	flex: 25%;
+	background-color: #b3b3cc;
+}
+nav{
+	overflow: hidden;
+	padding-top: 30px;
+}
+nav a{
+	text-decoration: none;
+	color:#4d4d33;
+	transition: background linear 2s;
+	display: block;
+	padding: 15px 5px 15px 25px;
+	font-size: 1.5vw;
+	overflow: hidden;
+}
+nav a:hover{
+	color: white;
+	background-color: #334d4d;
+}
+.left .icon{
+	display: none;
+}
+.right{
+	flex: 75%;
+	font-size: 1.5vw;
+	background-color:#0a0a0f;
+}
+#technologystack ul{
+	list-style: none;
+}
+h1{
+	text-align: center;
+	color:  #f0f0f5;
+}
+h2{
+	color:  #f0f5f5;
+}
+a{
+	text-decoration: none;
+	color:  #b3cccc;
+}
+th,td,caption,p{
+	color: #e0ebeb; 
+}
+.inner{
+	padding:20px;
+}
+footer{
+	text-align: center;
+}
+button{
+	border-radius: 10px;
+}
+button a{
+	color:  #141f1f;
+	padding: 5px;
+}
+@media screen and (max-width: 600px){
+	body{
+		display: block;
+		flex-wrap: nowrap;
+	}
+	nav{
+		padding-top: 0px;
+	}
+	.left a{
+		display: none;
+	}
+	.left .icon{
+		display: block;
+		float: right;
+	}
+}
+@media screen and (max-width: 600px){
+	.left.responsive{position: relative;}
+	.left.responsive.icon{
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.left.responsive a{
+		float: none;
+		display: block;
+		text-align: left;
+	}
+}
+
+</style>
+<body>
+	<aside class='left' id="mynav">
+		<nav>
+			<a href="#Introduction">Introduction</a>
+			<a href="#BasicIdea">Basic Idea</a>
+			<a href="#technologystack">Technology Stack</a>
+			<a href="#circuitdiagram">Circit</a>
+			<a href="#OperationalProcedure">Operational Procedure</a>
+			<a href="#powerdevelopedgraph">Power Developed Graph</a>
+			<a href="#scope">Scope</a>
+			<a href="#table">Table</a>
+			<a href="javascript:void(0);" class="icon" onclick="myfunction()">
+				<i class="fa fa-bars"></i>
+			</a>
+		</nav>
+	</aside>
+<main class='right'>
+	<div class="inner">
+	<h1 id='x'>Smart Solar Panel</h1>
+	<div id="Introduction">
+
+		<h2>Introduction</h2>
+		<p>As the world is growing the conventional sources of energy are reducing ,so we have to focus on non-conventional sources of energy. Sun is the biggest source for non-conventional energy and so solar panels are being used everywhere to sustain the current reserves and make energy  more efficiently. A usual solar panel has an efficiency of around 17-19% whereas if we rotate the solar panel in the direction of sun , the efficiency can be increased to 30-40%. 
+
+		</p>
+	</div>
+	<div id="BasicIdea">
+		<h2>Basic Idea</h2>
+		<p>The basic idea behind this model is that maximum efficiency is obtained when the solar panel is placed perpendicular to the sun.So as the sun will rotate in it’s trajectory the panel will move with it giving maximum efficiency.
+
+		</p>
+		
+	</div>
+	<div id="technologystack">
+		<h2>Technology Stack</h2>
+		<p>
+			<ul>
+				<li><a href="https://en.wikipedia.org/wiki/LDR">Light Dependent Resistor</a></li>
+				<li><a href="https://en.wikipedia.org/wiki/Arduino">Arduino Uno</a></li>
+				<li><a href="https://en.wikipedia.org/wiki/Servomotor">Servo Motor</a></li>
+				<li><a href="https://en.wikipedia.org/wiki/Resistor">Resistor</a></li>
+				<li><a href="https://en.wikipedia.org/wiki/Solar_panel">Solar Panel</a></li>
+			</ul>
+		</p>
+		
+	</div>
+	<div id="circuitdiagram">
+		<h2>Circuit</h2>
+		<figure>
+			<img src="circuit.png" alt="" height="50%" width="50%" align="center">
+			<figcaption><b>On Board Circuit</b></figcaption>
+		</figure>
+		
+	</div>
+	<div id="OperationalProcedure">
+		<h2>Operational Procedure</h2>
+		<p>When the sun rises the solar panel is fixed at a point.
+		4 LDRs are used to detect the intensity of light, as the intensity of light increases their resistance decreases.
+		When the sun rotates in it’s trajectory the intensity of light changes at a specific place where our panel is kept.
+		When the sun rotates, the intensity of light at a certain LDR will be higher or lower as compared to another LDR  depending upon its location.
+		The 4 LDRs are kept in a rhombus fashion.
+		Suppose the LDRs are named A , B , C , D. If the sun is moving in the direction of C, then the intensity of light at C will be more than every other LDR placed over the panel.2 servo motors are being used to rotate the panel in both the direction .i.e from east to west and from east to west through south or north.
+		Since for every equinox and solstice the earth rotates by an angle of 23.5 degrees, so to rotate our panel in other direction also we have to use 2 servo motors.
+		The intensity of light at every LDR is constantly being recorded by the Arduino, so the Arduino will compare the intensities of the LDRs and will command the motors to move in the direction of the LDR having the maximum intensity of light.
+		This way the panel will keep moving with sun maintaining an angle of 90 degrees with the it and hence giving maximum intensity.
+		When it gets dark the panel will automatically return to it’s original position(the panel is coded as when the intensity of light decreases below a threshold value return the panel to it’s original state).
+
+		</p>
+		
+	</div>
+	<div id="table">
+		<h2>Table</h2>
+		<table border="1">
+			<caption>Values of Power Developed</caption>
+			<tr>
+				<th scope="col">Voltage(V)</th>
+				<th scope="col">Current(A)</th>
+				<th scope="col">Power(W)</th>
+			</tr>
+			<tr>
+				<td>5.12</td>
+				<td>1.21</td>
+				<td>6.1952</td>
+			</tr>
+			<tr>
+				<td>5.23</td>
+				<td>1.4</td>
+				<td>7.322</td>
+			</tr>
+			<tr>
+				<td>5.41</td>
+				<td>1.5</td>
+				<td>8.115</td>
+			</tr><tr>
+				<td>5.16</td>
+				<td>1.23</td>
+				<td>6.3468</td>
+			</tr>
+			
+
+		</table>
+		
+	</div>
+	<div id="powerdevelopedgraph">
+		<h2>Power Developed Graph</h2>
+		<p>
+			<img src="Capture.png" alt="" width="25%" height="25%" align="center"><br>A graph for the power developed by static solar panel and dual axis solar tracker is shown, this is an expected graph which we will be obtaining.
+			From the graph it can be explicitly seen that power developed in case of smart solar tracker is more than in case of static solar panel.
+
+		</p>
+		
+	</div>
+	<div id="scope">
+		<h2>Scope</h2>
+		<p>Since India is a developing nation, the energy demands are a increasing at an enormous rate. So to meet these increasing demands, a smart solar panel is a great alternative to conventional sources of energy generation.
+		This will help in creating green energy, thus minimizing pollution.
+		Since the efficiency and output is more than the static one, it can also easily meet the demand of a small family and if every home has one or two smart solar panels placed on their houses roof it can be a big change.
+		</p>
+	</div>
+	<footer>
+		<button><a href='#x'>Back to top</a></button>
+	</footer>
+</main>
+</div>
+<script type="text/javascript">
+	function myfunction() {
+		var x = document.getElementById('mynav');
+		if (x.className == 'left'){
+			x.className+='responsive';
+		}
+		else{
+			x.className='left'
+		}
+	}
+</script>
+</body>
+</html>
